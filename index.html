@@ -46,6 +46,21 @@
         zoomControl: true,
         });
 
+	map_e0259e92729e493d972c3d3584017196.locate({setView: true, maxZoom: 16});
+
+	function onLocationFound(e) {
+	var radius = e.accuracy / 2;
+
+	L.marker(e.latlng).addTo(map_e0259e92729e493d972c3d3584017196);
+
+	}
+	function onLocationError(e) {
+	alert(e.message);
+	}
+
+	map_e0259e92729e493d972c3d3584017196.on('locationerror', onLocationError);
+
+	map_e0259e92729e493d972c3d3584017196.on('locationfound', onLocationFound);
     
     
     var tile_layer_607038444cad4ef9968b9afc8412b67b = L.tileLayer(
